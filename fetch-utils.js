@@ -9,7 +9,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 export async function getWorkshops() {
     const response = await client
         .from('workshops')
-        .select('*, workshop_participants (*)');
+        .select(`*, workshop-participants (*)`);
 
     return response.body;
 }
@@ -56,7 +56,7 @@ export function checkAuth() {
 
 export function redirectIfLoggedIn() {
     if (getUser()) {
-        location.replace('./other-page');
+        location.replace('./workshops');
     }
 }
 
