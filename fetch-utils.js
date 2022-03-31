@@ -9,7 +9,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 export async function getWorkshops() {
     const response = await client
         .from('workshops')
-        .select(`*, workshop-participants (*)`);
+        .select(`*, workshopParticipants (*)`);
 
     return response.body;
 }
@@ -19,7 +19,7 @@ export async function getWorkshops() {
 //get participants/workshop info and create/delete a  participant
 export async function getAllParticipants() {
     const response = await client
-        .from('workshop-participants')
+        .from('workshopParticipants')
         .select('*');
 
     return response.body;
@@ -27,7 +27,7 @@ export async function getAllParticipants() {
 
 export async function deleteParticipant(id) {
     const response = await client
-        .from('workshop-participants')
+        .from('workshopParticipants')
         .delete()
         .match({ id: id })
         .single();
@@ -37,7 +37,7 @@ export async function deleteParticipant(id) {
 
 export async function createParticipant(participant) {
     const response = await client
-        .from('workshop-participants')
+        .from('workshopParticipants')
         .insert(participant);
 
     return response.body;

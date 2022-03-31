@@ -21,7 +21,8 @@ section {
     width: 1000px;
     min-width: 80%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
@@ -37,6 +38,22 @@ header {
 .flex-column {
     display: flex;
     flex-direction: column;
+}
+
+h3 {
+    padding: 10px;
+    text-align: center;
+}
+
+.workshopDiv {
+    border: 2px solid black;
+    width: 20vw;
+    min-height: 5vh;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 

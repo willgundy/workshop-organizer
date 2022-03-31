@@ -29,7 +29,7 @@ async function addWorkshopOptions() {
     }
 }
 
-window.addEventListener('submit', (e) => {
+window.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(participantForm);
 
@@ -41,7 +41,7 @@ window.addEventListener('submit', (e) => {
         workshop_id: workshopId
     };
 
-    createParticipant(participant);
+    await createParticipant(participant);
 
     window.location.href = '../workshops';
 });
