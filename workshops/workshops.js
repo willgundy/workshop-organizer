@@ -34,21 +34,31 @@ async function displayWorkshops() {
         workshopDiv.append(workshopName);
 
         for (let participant of workshop.workshopParticipants) {
+            const participantDiv = document.createElement('div');
+            participantDiv.classList.add('participantDiv');
+            participantDiv.id = participant.id;
+            participantDiv.draggable = true;
+
+
             const participantName = document.createElement('p');
             participantName.textContent = participant.name;
-            participantName.id = participant.id;
-            participantName.draggable = true;
 
-            participantName.addEventListener('click', async () => {
+            const removeParticipantEl = document.createElement('span');
+            removeParticipantEl.classList.add('removeItem');
+            removeParticipantEl.textContent = '\u00D7';
+
+            removeParticipantEl.addEventListener('click', async () => {
                 await deleteParticipant(participant.id);
                 displayWorkshops();
             });
 
-            participantName.addEventListener('dragstart', (e) => {
+            participantDiv.addEventListener('dragstart', (e) => {
                 dragStart(e);
             });
 
-            workshopDiv.append(participantName);
+            participantDiv.append(participantName, removeParticipantEl);
+
+            workshopDiv.append(participantDiv);
         }
 
         workshopsContainer.append(workshopDiv);
