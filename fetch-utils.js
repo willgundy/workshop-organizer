@@ -43,6 +43,16 @@ export async function createParticipant(participant) {
     return response.body;
 }
 
+export async function updateParticipantWorkshopId(participantId, workshopId) {
+    const response = await client
+        .from('workshopParticipants')
+        .update({ workshop_id: workshopId })
+        .match({ id: participantId })
+        .single();
+
+    return response.body;
+}
+
 //LOGIN/LOGOUT AND USER AUTH
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
