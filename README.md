@@ -24,3 +24,23 @@ Additional considerations:
     -   What needs to live in a persistence layer?
 -   Is there some state we need to initialize?
 -   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
+
+Wireframe:
+![wireframe](/assets/wireframe.png)
+
+
+To Dos:
+1. HTML Skeleton - CSS skeleton
+2. Setup Tables
+    - Workshops
+    - Workshop Participants
+3. Fetch Utils
+4. Render Utils
+5. Workshop page
+    - fetch DOM elements
+    - event listeners
+    - functions
+6. Create Participant page
+    - fetch DOM elements
+    - event listeners
+    - functions
