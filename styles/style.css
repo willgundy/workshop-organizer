@@ -118,7 +118,7 @@ a:hover {
     color: white;
 }
 
-input, select {
+#participantName, select {
     margin: 10px;
     border-radius: 5px;
     height: 5vh;
